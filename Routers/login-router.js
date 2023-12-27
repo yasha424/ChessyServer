@@ -1,8 +1,7 @@
 const express = require('express')
-require('dotenv').config()
 const sqlite3 = require('sqlite3').verbose()
-const db = new sqlite3.Database('../database.db')
-const { passwordStrength } = require('check-password-strength')
+const path = require('path')
+const db = new sqlite3.Database(path.resolve(__dirname, './../database.db'))
 
 db.serialize(() => {
     // Create a users table with a password field

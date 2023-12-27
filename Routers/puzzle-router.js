@@ -23,7 +23,7 @@ db.serialize(() => {
 
 db.all('SELECT * FROM puzzle', [], (err, puzzles) => {
     if (puzzles.length == 0) {
-        fs.createReadStream("/Users/yasha/xcode-projects/ChessyServer/puzzles.csv")
+        fs.createReadStream(path.resolve(__dirname, './../puzzles.csv'))
             .pipe(csv())
             .on('data', (data) => {
                 results.push(data)
